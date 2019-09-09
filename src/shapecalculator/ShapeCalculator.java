@@ -17,7 +17,8 @@ public class ShapeCalculator {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the Shape Calculator.");
         
-        while (true){
+        int i = 1;
+        while (i == 1){
         System.out.println("Would you like to calculate a circle or a rectangle?");
         String input = sc.next();
         if (null == input){
@@ -30,8 +31,12 @@ public class ShapeCalculator {
                 case "rectangle":
                     rectangleCalc();
                     break;
+                case "end":
+                    i = 2;
+                    break;
                 default:
                     System.out.println("Make sure to enter circle or rectangle!");
+                    System.out.println("Or use end if you are finished.");
                     break;
             }
         }
@@ -41,17 +46,14 @@ public class ShapeCalculator {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the Circle Calculator.");
         System.out.println("Please enter the radius of your circle.");
-        double radius = sc.nextDouble();
-        while (radius < 0){
+        Circle circle = new Circle(sc.nextDouble());
+        while (circle.getRadius() < 0){
             System.out.println("Please enter a positive number for the radius.");
-            radius = sc.nextDouble();
+            circle.setRadius(sc.nextDouble());
         }
-        double diameter = radius * 2;
-        double circumference = diameter * Math.PI;
-        double area = Math.PI * radius * radius;
-        System.out.println("The diameter of your circle is " + diameter);
-        System.out.println("The circumference of your circle is " + circumference);
-        System.out.println("The area of your circle is " + area);
+        System.out.println("The diameter of your circle is " + circle.getDiameter());
+        System.out.println("The circumference of your circle is " + circle.getCircumference());
+        System.out.println("The area of your circle is " + circle.getArea());
         System.out.println("Have a nice day!");
         
     }
@@ -71,12 +73,10 @@ public class ShapeCalculator {
             System.out.println("Please enter a positive number for the width.");
             width = sc.nextDouble();
         }
-        double perimeter = width * 2 + length * 2;
-        double area = width * length;
-        System.out.println("The perimeter of your rectangle is " + perimeter);
-        System.out.println("The area of your rectangle is " + area);
+        Rectangle rectangle = new Rectangle(length, width);
+        System.out.println("The perimeter of your rectangle is " + rectangle.getPerimeter());
+        System.out.println("The area of your rectangle is " + rectangle.getArea());
         System.out.println("Have a nice day!");
-        
     }
     
 }
