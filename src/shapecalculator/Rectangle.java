@@ -9,7 +9,7 @@ package shapecalculator;
  *
  * @author 01048750
  */
-public class Rectangle {
+public final class Rectangle {
     private double length;
     private double width;
     private double perimeter;
