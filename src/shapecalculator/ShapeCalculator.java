@@ -19,10 +19,10 @@ public class ShapeCalculator {
         
         int i = 1;
         while (i == 1){
-            System.out.println("Would you like to calculate a circle, triangle or a rectangle?");
+            System.out.println("Would you like to calculate a circle, triangle, cylinder or a rectangle?");
             String input = sc.next();
             if (null == input){
-                System.out.println("Make sure to enter circle, triangle or rectangle!");
+                System.out.println("Make sure to enter circle, triangle, cylinder or rectangle!");
             }
             else switch (input.toLowerCase()) {
                     case "circle":
@@ -34,18 +34,21 @@ public class ShapeCalculator {
                     case "triangle":
                         triangleCalc();
                         break;
+                    case "cylinder":
+                        cylinderCalc();
+                        break;
                     case "end":
                         i = 2;
                         break;
                     default:
-                        System.out.println("Make sure to enter circle, triangle or rectangle!");
+                        System.out.println("Make sure to enter circle, triangle, cylinder or rectangle!");
                         System.out.println("Or use end if you are finished.");
                         break;
             }
         }
     }
     
-    public static void circleCalc(){
+    private static void circleCalc(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the Circle Calculator.");
         System.out.println("Please enter the radius of your circle.");
@@ -61,7 +64,7 @@ public class ShapeCalculator {
         
     }
     
-    public static void rectangleCalc(){
+    private static void rectangleCalc(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the Rectangle Calculator.");
         System.out.println("Please enter the length of your rectangle.");
@@ -82,7 +85,7 @@ public class ShapeCalculator {
         System.out.println("Have a nice day!");
     }
     
-    public static void triangleCalc(){
+    private static void triangleCalc(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to the Triangle Calculator.");
         System.out.println("Please enter the first side of your triangle.");
@@ -109,6 +112,10 @@ public class ShapeCalculator {
         System.out.println("Have a nice day!");
         
         
+    }
+
+    private static void cylinderCalc() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

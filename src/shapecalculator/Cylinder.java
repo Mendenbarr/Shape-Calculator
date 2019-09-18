@@ -15,7 +15,10 @@ public class Cylinder {
     private double height;
     
     public Cylinder (Circle base, double height){
-        this.base = base;
+        this(base.getRadius(), height);
+    }
+    public Cylinder (double radius, double height){
+        this.base = new Circle(radius);
         this.height = height;
     }
     
@@ -45,7 +48,7 @@ public class Cylinder {
     
     /**
      *
-     * @returns double
+     * @return double
      */
     public double getVolume(){
         return base.getArea() * height;
@@ -53,6 +56,13 @@ public class Cylinder {
     
     public double getSurfaceArea(){
         return base.getArea() * 2 + base.getCircumference() * height;
+    }
+    
+    public void printInfo(){
+        System.out.println("Cylinder height: " + this.getHeight());
+        System.out.println("Cylinder base radius: " + this.getRadius());
+        System.out.println("Cylinder volume: " + this.getVolume());
+        System.out.println("Cylinder surface area: " + this.getSurfaceArea());
     }
     
     
