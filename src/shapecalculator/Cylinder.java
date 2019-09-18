@@ -11,20 +11,28 @@ package shapecalculator;
  */
 public class Cylinder {
     
-    private double radius;
+    private Circle base;
     private double height;
     
-    public Cylinder (double radius, double height){
-        this.radius = radius;
+    public Cylinder (Circle base, double height){
+        this.base = base;
         this.height = height;
     }
     
+    public Circle getBase(){
+        return base;
+    }
+    
+    public void setBase(Circle base){
+        this.base = new Circle(base.getRadius());
+    }
+    
     public double getRadius(){
-        return radius;
+        return base.getRadius();
     }
     
     public void setRadius(double radius){
-        this.radius = radius;
+        base.setRadius(radius);
     }
     
     public double getHeight(){
@@ -35,12 +43,18 @@ public class Cylinder {
         this.height = height;
     }
     
-    public double getArea(){
-        return Math.PI * radius * radius * height;
+    /**
+     *
+     * @returns double
+     */
+    public double getVolume(){
+        return base.getArea() * height;
     }
     
     public double getSurfaceArea(){
-        return Math.PI * radius * radius * 2 + 2 * Math.PI * radius * height;
+        return base.getArea() * 2 + base.getCircumference() * height;
     }
+    
+    
     
 }
