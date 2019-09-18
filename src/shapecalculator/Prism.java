@@ -38,6 +38,7 @@ public class Prism {
     
     public void setLength(double length){
         side1.setLength(length);
+        side3.setWidth(length);
     }
     
     public double getHeight(){
@@ -46,6 +47,7 @@ public class Prism {
     
     public void setHeight(double height){
         side2.setLength(height);
+        side1.setWidth(height);
     }
     
     public double getWidth(){
@@ -54,6 +56,7 @@ public class Prism {
     
     public void setWidth(double width){
         side3.setLength(width);
+        side2.setWidth(width);
     }
     
     public double getSurfaceArea(){
