@@ -9,21 +9,15 @@ package shapecalculator;
  *
  * @author 01048750
  */
-public class Circle {
+public class Circle extends Shape {
     private double radius;
-    private double diameter;
-    private double circumference;
-    private double area;
     
-    public Circle (double r){
-        setRadius(r);
+    public Circle (double radius){
+        this.radius = radius;
     }
     
-    public void setRadius(double r){
-        radius = r;
-        diameter = radius * 2;
-        circumference = diameter * Math.PI;
-        area = Math.PI * radius * radius;
+    public void setRadius(double radius){
+        this.radius = radius;
     }
     
     public double getRadius (){
@@ -31,15 +25,21 @@ public class Circle {
     }
     
     public double getDiameter (){
-        return diameter;
+        return radius * 2;
+    }
+    
+    @Override
+    public double getPerimeter (){
+        return radius * 2 * Math.PI;
     }
     
     public double getCircumference (){
-        return circumference;
+        return getPerimeter();
     }
     
+    @Override
     public double getArea (){
-        return area;
+        return Math.PI * radius * radius;
     }
     
     

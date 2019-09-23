@@ -9,7 +9,7 @@ package shapecalculator;
  *
  * @author 01048750
  */
-public class Prism {
+public class Prism extends Rectangle {
     
     //private double width;
     //private double length;
@@ -21,12 +21,14 @@ public class Prism {
     private Rectangle side3;
     
     public Prism (Rectangle side1, Rectangle side2, Rectangle side3){
+        super(side1.getLength(), side1.getWidth());
         this.side1 = new Rectangle(side1.getLength(), side1.getWidth());
         this.side2 = new Rectangle(side2.getLength(), side2.getWidth());
         this.side3 = new Rectangle(side3.getLength(), side3.getWidth());
     }
     
     public Prism (double length, double height, double width){
+        super(length, width);
         this.side1 = new Rectangle(length, height);
         this.side2 = new Rectangle(height, width);
         this.side3 = new Rectangle(width, length);

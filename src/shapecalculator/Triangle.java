@@ -9,7 +9,7 @@ package shapecalculator;
  *
  * @author 01048750
  */
-public class Triangle {
+public class Triangle extends Shape {
     
     private double sideOne;
     private double sideTwo;
@@ -27,10 +27,12 @@ public class Triangle {
         perimeter = sideOne + sideTwo + sideThree;
     }
     
+    @Override
     public double getPerimeter(){
         return perimeter;
     }
     
+    @Override
     public double getArea(){
         return area;
     }

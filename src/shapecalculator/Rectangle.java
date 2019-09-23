@@ -9,15 +9,13 @@ package shapecalculator;
  *
  * @author 01048750
  */
-public final class Rectangle {
+public class Rectangle extends Shape {
     private double length;
     private double width;
-    private double perimeter;
-    private double area;
     
     public Rectangle (double l, double w){
-        setLength(l);
-        setWidth(w);
+        length = l;
+        width = w;
     }
     
     public void setLength(double l){
@@ -36,14 +34,14 @@ public final class Rectangle {
         return width;
     }
     
+    @Override
     public double getPerimeter (){
-        perimeter = 2 * length + 2 * width;
-        return perimeter;
+        return 2 * length + 2 * width;
     }
     
+    @Override
     public double getArea (){
-        area = length * width;
-        return area;
+        return length * width;
     }
     
     

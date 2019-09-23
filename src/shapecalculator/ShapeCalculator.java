@@ -6,6 +6,7 @@
 package shapecalculator;
 
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,6 +47,12 @@ public class ShapeCalculator {
                         break;
             }
         }
+    }
+    
+    
+    private static void OptionPaneTest(){
+        double radius = Double.parseDouble(JOptionPane.showInputDialog("Enter the radius"));
+        double height = Double.parseDouble(JOptionPane.showInputDialog("Enter the height"));
     }
     
     private static void circleCalc(){
