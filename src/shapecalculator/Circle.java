@@ -5,6 +5,8 @@
  */
 package shapecalculator;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 01048750
@@ -42,6 +44,11 @@ public class Circle extends Shape {
         return Math.PI * radius * radius;
     }
     
-    
-    
+    @Override
+    public void printInfo(){
+        JOptionPane.showMessageDialog(null, "The radius of your circle is " + getRadius());
+        JOptionPane.showMessageDialog(null, "The diameter of your circle is " + getDiameter());
+        JOptionPane.showMessageDialog(null, "The circumference of your circle is " + getCircumference());
+        JOptionPane.showMessageDialog(null, "The area of your circle is " + getArea());
+    }
 }

@@ -5,6 +5,8 @@
  */
 package shapecalculator;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 01048750
@@ -12,5 +14,8 @@ package shapecalculator;
 public abstract class Shape {
     public abstract double getArea();
     public abstract double getPerimeter();
+    public void printInfo(){
+        JOptionPane.showMessageDialog(null, "Error: This shape is missing it's printInfo method");
+    }
     
 }

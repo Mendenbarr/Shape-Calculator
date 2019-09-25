@@ -5,6 +5,8 @@
  */
 package shapecalculator;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 01048750
@@ -13,21 +15,21 @@ public class Rectangle extends Shape {
     private double length;
     private double width;
     
-    public Rectangle (double l, double w){
-        length = l;
-        width = w;
+    public Rectangle (double length, double width){
+        this.length = length;
+        this.width = width;
     }
     
-    public void setLength(double l){
-        length = l;
+    public void setLength(double length){
+        this.length = length;
+    }
+    
+    public void setWidth(double width){
+        this.width = width;
     }
     
     public double getLength (){
         return length;
-    }
-    
-    public void setWidth(double w){
-        width = w;
     }
     
     public double getWidth (){
@@ -44,6 +46,11 @@ public class Rectangle extends Shape {
         return length * width;
     }
     
-    
-    
+    @Override
+    public void printInfo(){
+        JOptionPane.showMessageDialog(null, "The length of your rectangle is " + getLength());
+        JOptionPane.showMessageDialog(null, "The width of your rectangle is " + getWidth());
+        JOptionPane.showMessageDialog(null, "The perimeter of your rectangle is " + getPerimeter());
+        JOptionPane.showMessageDialog(null, "The area of your rectangle is " + getArea());
+    }
 }

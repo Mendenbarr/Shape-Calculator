@@ -15,114 +15,109 @@ import javax.swing.JOptionPane;
 public class ShapeCalculator {
     
     public static void main (String[] args ){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to the Shape Calculator.");
-        
+        JOptionPane.showMessageDialog(null, "Welcome to the Shape Calculator.");
         int i = 1;
         while (i == 1){
-            System.out.println("Would you like to calculate a circle, triangle, cylinder or a rectangle?");
-            String input = sc.next();
-            if (null == input){
-                System.out.println("Make sure to enter circle, triangle, cylinder or rectangle!");
+            String[] choices = { "Circle", "Rectangle", "Triangle", "Cylinder", "Rectangular Prism", "Triangular Prism", "Sphere" };
+            String input = (String) JOptionPane.showInputDialog(null, "What type of shape would you like to work with?",
+            "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null,
+            choices, // Array of choices
+            choices[0]); // Initial choice
+            if (input == null) break;
+            switch (input) {
+                case "Circle":
+                    circleCalc();
+                    break;
+                case "Rectangle":
+                    rectangleCalc();
+                    break;
+                case "Triangle":
+                    triangleCalc();
+                    break;
+                case "Cylinder":
+                    cylinderCalc();
+                    break;
+                case "Rectangular Prism":
+                    rectangularPrismCalc();
+                    break;
+                case "Triangular Prism":
+                    triangularPrismCalc();
+                    break;
+                case "Sphere":
+                    sphereCalc();
+                    break;
+                default:
+                    System.out.println("Error: Shape not found.");
+                    break;
             }
-            else switch (input.toLowerCase()) {
-                    case "circle":
-                        circleCalc();
-                        break;
-                    case "rectangle":
-                        rectangleCalc();
-                        break;
-                    case "triangle":
-                        triangleCalc();
-                        break;
-                    case "cylinder":
-                        cylinderCalc();
-                        break;
-                    case "end":
-                        i = 2;
-                        break;
-                    default:
-                        System.out.println("Make sure to enter circle, triangle, cylinder or rectangle!");
-                        System.out.println("Or use end if you are finished.");
-                        break;
-            }
+            
+            
         }
-    }
-    
-    
-    private static void OptionPaneTest(){
-        double radius = Double.parseDouble(JOptionPane.showInputDialog("Enter the radius"));
-        double height = Double.parseDouble(JOptionPane.showInputDialog("Enter the height"));
     }
     
     private static void circleCalc(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to the Circle Calculator.");
-        System.out.println("Please enter the radius of your circle.");
-        Circle circle = new Circle(sc.nextDouble());
-        while (circle.getRadius() < 0){
-            System.out.println("Please enter a positive number for the radius.");
-            circle.setRadius(sc.nextDouble());
-        }
-        System.out.println("The diameter of your circle is " + circle.getDiameter());
-        System.out.println("The circumference of your circle is " + circle.getCircumference());
-        System.out.println("The area of your circle is " + circle.getArea());
-        System.out.println("Have a nice day!");
-        
+        JOptionPane.showMessageDialog(null, "Welcome to the Circle Calculator.");
+        Circle circle = new Circle(doubleMessageHelper("radius", "circle"));
+        circle.printInfo();
     }
     
     private static void rectangleCalc(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to the Rectangle Calculator.");
-        System.out.println("Please enter the length of your rectangle.");
-        double length = sc.nextDouble();
-        while (length < 0){
-            System.out.println("Please enter a positive number for the length.");
-            length = sc.nextDouble();
-        }
-        System.out.println("Great! Now enter the width of your rectangle.");
-        double width = sc.nextDouble();
-        while (width < 0){
-            System.out.println("Please enter a positive number for the width.");
-            width = sc.nextDouble();
-        }
+        JOptionPane.showMessageDialog(null, "Welcome to the Rectangle Calculator.");
+        double length = doubleMessageHelper("length", "rectangle");
+        double width = doubleMessageHelper("width", "rectangle");
         Rectangle rectangle = new Rectangle(length, width);
-        System.out.println("The perimeter of your rectangle is " + rectangle.getPerimeter());
-        System.out.println("The area of your rectangle is " + rectangle.getArea());
-        System.out.println("Have a nice day!");
+        rectangle.printInfo();
     }
     
     private static void triangleCalc(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Welcome to the Triangle Calculator.");
-        System.out.println("Please enter the first side of your triangle.");
-        
-        // Setup the three sides as positive, and recheck if they are not positive numbers.
-        double sideOne = sc.nextDouble();
-        while (sideOne < 0){
-            System.out.println("Please enter a positive number for the first side.");
-            sideOne = sc.nextDouble();
-        }
-        double sideTwo = sc.nextDouble();
-        while (sideTwo < 0){
-            System.out.println("Please enter a positive number for the second side.");
-            sideTwo = sc.nextDouble();
-        }
-        double sideThree = sc.nextDouble();
-        while (sideThree < 0){
-            System.out.println("Please enter a positive number for the third side.");
-            sideThree = sc.nextDouble();
-        }
+        JOptionPane.showMessageDialog(null, "Welcome to the Triangle Calculator.");
+        double sideOne = doubleMessageHelper("first side", "triangle");
+        double sideTwo = doubleMessageHelper("second side", "triangle");
+        double sideThree = doubleMessageHelper("third side", "triangle");
         Triangle triangle = new Triangle(sideOne, sideTwo, sideThree);
-        System.out.println("The perimeter of your triangle is " + triangle.getPerimeter());
-        System.out.println("The area of your triangle is " + triangle.getArea());
-        System.out.println("Have a nice day!");
-        
-        
+        triangle.printInfo();
     }
 
     private static void cylinderCalc() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JOptionPane.showMessageDialog(null, "Welcome to the Cylinder Calculator.");
+        double radius = doubleMessageHelper("radius", "cylinder");
+        double height = doubleMessageHelper("height", "cylinder");
+        Cylinder cylinder = new Cylinder(radius, height);
+        cylinder.printInfo();
+    }
+    
+    private static void rectangularPrismCalc(){
+        JOptionPane.showMessageDialog(null, "Welcome to the Rectangular Prism Calculator.");
+        double length = doubleMessageHelper("length", "rectangular prism");
+        double width = doubleMessageHelper("width", "rectangular prism");
+        double height = doubleMessageHelper("height", "rectangular prism");
+        RectangularPrism rectangularPrism = new RectangularPrism(length, width, height);
+        rectangularPrism.printInfo();
+    }
+    
+     private static void triangularPrismCalc(){
+        JOptionPane.showMessageDialog(null, "Welcome to the Triangular Prism Calculator.");
+        double sideOne = doubleMessageHelper("first side", "triangular prism");
+        double sideTwo = doubleMessageHelper("second side", "triangular prism");
+        double sideThree = doubleMessageHelper("third side", "triangular prism");
+        double height = doubleMessageHelper("height", "triangular prism");
+        TriangularPrism triangularPrism = new TriangularPrism(sideOne, sideTwo, sideThree, height);
+        triangularPrism.printInfo();
+    }
+     
+     private static void sphereCalc(){
+        JOptionPane.showMessageDialog(null, "Welcome to the Sphere Calculator.");
+        Sphere sphere = new Sphere(doubleMessageHelper("radius", "sphere"));
+        sphere.printInfo();
+    }
+    
+    // Returns a variable for a shape after ensuring that it is positive.
+    private static double doubleMessageHelper(String variable, String shape){
+        double v = Double.parseDouble(JOptionPane.showInputDialog("Please enter the " + variable + " of your " + shape + "."));
+        while (v < 0){
+            v = Double.parseDouble(JOptionPane.showInputDialog("Please enter a positive number for the " + variable + " of your " + shape + "."));
+        }
+        return v;
     }
     
 }

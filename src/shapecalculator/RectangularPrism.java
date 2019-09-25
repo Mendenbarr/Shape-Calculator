@@ -11,34 +11,25 @@ import javax.swing.JOptionPane;
  *
  * @author 01048750
  */
-public class Cylinder extends Circle {
+public class RectangularPrism extends Rectangle {
     
     private double height;
-
-   
-    public Cylinder (Circle base, double height){
-        this(base.getRadius(), height);
+    
+    public RectangularPrism (Rectangle base, double height){
+        this(base.getLength(), base.getWidth(), height);
     }
     
-    public Cylinder (double radius, double height){
-        super(radius);
+    public RectangularPrism (double length, double height, double width){
+        super(length, width);
         this.height = height;
     }
     
-    public void setBase(Circle base){
-        this.setRadius(base.getRadius());
+    public double getHeight(){
+        return this.height;
     }
     
     public void setHeight(double height){
         this.height = height;
-    }
-    
-    public Circle getBase(){
-        return new Circle(this.getRadius());
-    }
-    
-    public double getHeight(){
-        return height;
     }
     
     public double getVolume(){
@@ -60,12 +51,12 @@ public class Cylinder extends Circle {
     
     @Override
     public void printInfo(){
-        JOptionPane.showMessageDialog(null, "The radius of your cylinder is " + getRadius());
-        JOptionPane.showMessageDialog(null, "The height of your cylinder is " + getHeight());
-        JOptionPane.showMessageDialog(null, "The volume of your cylinder is " + getVolume());
-        JOptionPane.showMessageDialog(null, "The surface area of your cylinder is " + getSurfaceArea());
+        JOptionPane.showMessageDialog(null, "The length of your rectangular prism is " + getLength());
+        JOptionPane.showMessageDialog(null, "The width of your rectangular prism is " + getWidth());
+        JOptionPane.showMessageDialog(null, "The height of your rectangular prism is " + getHeight());
+        JOptionPane.showMessageDialog(null, "The volume of your rectangular prism is " + getVolume());
+        JOptionPane.showMessageDialog(null, "The surface area of your rectangular prism is " + getSurfaceArea());
     }
-    
     
     
 }
