@@ -13,6 +13,11 @@ public class Novel extends Book {
         super(title, author, numberOfPages);
         this.genre = genre;
     }
+    
+    public Novel(Book book, String genre) {
+        this(book.getTitle(), book.getAuthor(), book.getNumberOfPages(), genre);
+    }
+
 
     public void setGenre(String genre) {
         this.genre = genre;

@@ -13,6 +13,10 @@ public class Textbook extends Book {
         super(title, author, numberOfPages);
         this.gradeLevel = gradeLevel;
     }
+    
+    public Textbook(Book book, String gradeLevel) {
+        this(book.getTitle(), book.getAuthor(), book.getNumberOfPages(), gradeLevel);
+    }
 
     public void setGradeLevel(String gradeLevel) {
         this.gradeLevel = gradeLevel;

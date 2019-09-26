@@ -13,6 +13,10 @@ public class Biography extends Book {
         super(title, author, numberOfPages);
         this.subject = subject;
     }
+    
+    public Biography(Book book, String subject) {
+        this(book.getTitle(), book.getAuthor(), book.getNumberOfPages(), subject);
+    }
 
     public void setSubject(String subject) {
         this.subject = subject;
