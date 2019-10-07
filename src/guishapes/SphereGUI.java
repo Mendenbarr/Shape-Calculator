@@ -13,12 +13,12 @@ import shapecalculator.*;
  *
  * @author 01048750
  */
-public class CircleGUI extends javax.swing.JFrame implements ActionListener {
+public class SphereGUI extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form CircleGUI
      */
-    public CircleGUI() {
+    public SphereGUI() {
         initComponents();
         RadiusButton.addActionListener(this);
         RadiusTextfield.addActionListener(this);
@@ -36,12 +36,11 @@ public class CircleGUI extends javax.swing.JFrame implements ActionListener {
         RadiusLabel = new javax.swing.JLabel();
         RadiusTextfield = new javax.swing.JTextField();
         RadiusButton = new javax.swing.JButton();
-        DiameterLabel = new javax.swing.JLabel();
-        CircumferenceLabel = new javax.swing.JLabel();
-        AreaLabel = new javax.swing.JLabel();
+        SurfaceAreaLabel = new javax.swing.JLabel();
+        VolumeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Circle Calculator");
+        setTitle("Sphere Calculator");
 
         RadiusLabel.setText("Radius: ");
 
@@ -53,12 +52,10 @@ public class CircleGUI extends javax.swing.JFrame implements ActionListener {
 
         RadiusButton.setText("Enter");
 
-        DiameterLabel.setText("0: Diameter");
-        DiameterLabel.setToolTipText("");
+        SurfaceAreaLabel.setText("0: Surface Area");
+        SurfaceAreaLabel.setToolTipText("");
 
-        CircumferenceLabel.setText("0: Circumference");
-
-        AreaLabel.setText("0: Area");
+        VolumeLabel.setText("0: Volume");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,9 +72,8 @@ public class CircleGUI extends javax.swing.JFrame implements ActionListener {
                         .addComponent(RadiusButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CircumferenceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(AreaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(DiameterLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(VolumeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SurfaceAreaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -90,12 +86,10 @@ public class CircleGUI extends javax.swing.JFrame implements ActionListener {
                     .addComponent(RadiusTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RadiusButton))
                 .addGap(18, 18, 18)
-                .addComponent(DiameterLabel)
+                .addComponent(SurfaceAreaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CircumferenceLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AreaLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(VolumeLabel)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -123,39 +117,38 @@ public class CircleGUI extends javax.swing.JFrame implements ActionListener {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CircleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SphereGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CircleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SphereGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CircleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SphereGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CircleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SphereGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CircleGUI().setVisible(true);
+                new SphereGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AreaLabel;
-    private javax.swing.JLabel CircumferenceLabel;
-    private javax.swing.JLabel DiameterLabel;
     private javax.swing.JButton RadiusButton;
     private javax.swing.JLabel RadiusLabel;
     private javax.swing.JTextField RadiusTextfield;
+    private javax.swing.JLabel SurfaceAreaLabel;
+    private javax.swing.JLabel VolumeLabel;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void actionPerformed(ActionEvent ae) {
        double radius = Double.parseDouble(RadiusTextfield.getText());
-       Circle circle = new Circle(radius);
-       DiameterLabel.setText(String.valueOf(circle.getDiameter()) + ": Diameter");
-       CircumferenceLabel.setText(String.valueOf(circle.getCircumference()) + ": Circumference");
-       AreaLabel.setText(String.valueOf(circle.getArea()) + ": Area");
+       Sphere sphere = new Sphere(radius);
+       SurfaceAreaLabel.setText(String.valueOf(sphere.getSurfaceArea()) + ": Surface Area");
+       VolumeLabel.setText(String.valueOf(sphere.getVolume()) + ": Volume");
     }
 }

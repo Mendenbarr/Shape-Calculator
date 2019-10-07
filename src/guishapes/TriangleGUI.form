@@ -3,10 +3,10 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Rectangle Calculator"/>
+    <Property name="title" type="java.lang.String" value="Triangle Calculator"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,0,-67,0,0,1,31"/>
+    <SyntheticProperty name="formSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,0,-39,0,0,1,31"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="0"/>
     <SyntheticProperty name="generateSize" type="boolean" value="true"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
@@ -40,18 +40,23 @@
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="Input2Label" max="32767" attributes="0"/>
                           <Component id="InputLabel" max="32767" attributes="0"/>
+                          <Component id="InputLabel1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="InputTextfield" pref="132" max="32767" attributes="0"/>
+                              <Component id="Side1Text" pref="136" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="Input2Textfield" max="32767" attributes="0"/>
+                              <Component id="Side3Text" max="32767" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="InputButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="Side2Text" pref="136" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -65,19 +70,24 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="InputLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="InputTextfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Side1Text" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="InputLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Side2Text" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="Input2Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Input2Textfield" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Side3Text" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="InputButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="PerimeterLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="AreaLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -85,18 +95,33 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="InputLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Length: "/>
+        <Property name="text" type="java.lang.String" value="Side 1: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="InputTextfield">
+    <Component class="javax.swing.JLabel" name="InputLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Side 2: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Input2Label">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Side 3: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Side1Text">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InputTextfieldActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Side1TextActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="InputButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Enter"/>
-      </Properties>
+    <Component class="javax.swing.JTextField" name="Side2Text">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Side2TextActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="Side3Text">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Side3TextActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="PerimeterLabel">
       <Properties>
@@ -109,15 +134,10 @@
         <Property name="text" type="java.lang.String" value="0: Area"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="Input2Label">
+    <Component class="javax.swing.JButton" name="InputButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Width:"/>
+        <Property name="text" type="java.lang.String" value="Enter"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="Input2Textfield">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Input2TextfieldActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

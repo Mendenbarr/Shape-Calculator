@@ -13,12 +13,12 @@ import shapecalculator.*;
  *
  * @author 01048750
  */
-public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
+public class TriangleGUI extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form CircleGUI
      */
-    public RectangleGUI() {
+    public TriangleGUI() {
         initComponents();
         InputButton.addActionListener(this);
     }
@@ -33,38 +33,48 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
     private void initComponents() {
 
         InputLabel = new javax.swing.JLabel();
-        InputTextfield = new javax.swing.JTextField();
-        InputButton = new javax.swing.JButton();
+        InputLabel1 = new javax.swing.JLabel();
+        Input2Label = new javax.swing.JLabel();
+        Side1Text = new javax.swing.JTextField();
+        Side2Text = new javax.swing.JTextField();
+        Side3Text = new javax.swing.JTextField();
         PerimeterLabel = new javax.swing.JLabel();
         AreaLabel = new javax.swing.JLabel();
-        Input2Label = new javax.swing.JLabel();
-        Input2Textfield = new javax.swing.JTextField();
+        InputButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Rectangle Calculator");
+        setTitle("Triangle Calculator");
 
-        InputLabel.setText("Length: ");
+        InputLabel.setText("Side 1: ");
 
-        InputTextfield.addActionListener(new java.awt.event.ActionListener() {
+        InputLabel1.setText("Side 2: ");
+
+        Input2Label.setText("Side 3: ");
+
+        Side1Text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputTextfieldActionPerformed(evt);
+                Side1TextActionPerformed(evt);
             }
         });
 
-        InputButton.setText("Enter");
+        Side2Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Side2TextActionPerformed(evt);
+            }
+        });
+
+        Side3Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Side3TextActionPerformed(evt);
+            }
+        });
 
         PerimeterLabel.setText("0: Perimeter");
         PerimeterLabel.setToolTipText("");
 
         AreaLabel.setText("0: Area");
 
-        Input2Label.setText("Width:");
-
-        Input2Textfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Input2TextfieldActionPerformed(evt);
-            }
-        });
+        InputButton.setText("Enter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,17 +91,21 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(Input2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InputLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(InputLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InputLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(InputTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                .addComponent(Side1Text, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                                 .addGap(79, 79, 79))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Input2Textfield)
+                                .addComponent(Side3Text)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(InputButton)
-                                .addContainerGap())))))
+                                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Side2Text, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                                .addGap(79, 79, 79))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,30 +113,38 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InputLabel)
-                    .addComponent(InputTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Side1Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InputLabel1)
+                    .addComponent(Side2Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Input2Label)
-                    .addComponent(Input2Textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Side3Text, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InputButton))
                 .addGap(18, 18, 18)
                 .addComponent(PerimeterLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AreaLabel)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(287, 189));
+        setSize(new java.awt.Dimension(287, 217));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void InputTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputTextfieldActionPerformed
+    private void Side1TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Side1TextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_InputTextfieldActionPerformed
+    }//GEN-LAST:event_Side1TextActionPerformed
 
-    private void Input2TextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Input2TextfieldActionPerformed
+    private void Side3TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Side3TextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Input2TextfieldActionPerformed
+    }//GEN-LAST:event_Side3TextActionPerformed
+
+    private void Side2TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Side2TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Side2TextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,21 +163,23 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RectangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TriangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RectangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TriangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RectangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TriangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RectangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TriangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RectangleGUI().setVisible(true);
+                new TriangleGUI().setVisible(true);
             }
         });
     }
@@ -163,19 +187,22 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AreaLabel;
     private javax.swing.JLabel Input2Label;
-    private javax.swing.JTextField Input2Textfield;
     private javax.swing.JButton InputButton;
     private javax.swing.JLabel InputLabel;
-    private javax.swing.JTextField InputTextfield;
+    private javax.swing.JLabel InputLabel1;
     private javax.swing.JLabel PerimeterLabel;
+    private javax.swing.JTextField Side1Text;
+    private javax.swing.JTextField Side2Text;
+    private javax.swing.JTextField Side3Text;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-       double length = Double.parseDouble(InputTextfield.getText());
-       double width = Double.parseDouble(Input2Textfield.getText());
-       Rectangle rectangle = new Rectangle(length,width);
-       PerimeterLabel.setText(String.valueOf(rectangle.getPerimeter()) + ": Perimeter");
-       AreaLabel.setText(String.valueOf(rectangle.getArea()) + ": Area");
+       double side1 = Double.parseDouble(Side1Text.getText());
+       double side2 = Double.parseDouble(Side2Text.getText());
+       double side3 = Double.parseDouble(Side3Text.getText());
+       Triangle triangle = new Triangle(side1,side2,side3);
+       PerimeterLabel.setText(String.valueOf(triangle.getPerimeter()) + ": Perimeter");
+       AreaLabel.setText(String.valueOf(triangle.getArea()) + ": Area");
     }
 }

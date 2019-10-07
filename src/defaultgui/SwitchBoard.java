@@ -3,25 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guishapes;
+package defaultgui;
 
+import guishapes.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import paint.PaintGUI;
+import tempcalc.TempGUI;
 
 /**
  *
  * @author 01048750
  */
-public class Switchboard extends javax.swing.JFrame implements ActionListener {
+public class SwitchBoard extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form Switchboard
      */
-    public Switchboard() {
+    public SwitchBoard() {
         initComponents();
-        jButton1.addActionListener(this);
-        jButton2.addActionListener(this);
-        jButton3.addActionListener(this);
+        ShapeButton.addActionListener(this);
+        PaintButton.addActionListener(this);
+        TempButton.addActionListener(this);
     }
 
     /**
@@ -33,28 +36,33 @@ public class Switchboard extends javax.swing.JFrame implements ActionListener {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        ShapeButton = new javax.swing.JButton();
+        PaintButton = new javax.swing.JButton();
+        TempButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Shapes Calculator");
+        setTitle("Lab 3");
 
-        jButton1.setText("Circle Calculator");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ShapeButton.setText("Shape Calculator");
+        ShapeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ShapeButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Rectangle Calculator");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        PaintButton.setText("Paint Calculator");
+        PaintButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                PaintButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Triangle Calculator");
+        TempButton.setText("Temperature Calculator");
+        TempButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TempButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,34 +71,38 @@ public class Switchboard extends javax.swing.JFrame implements ActionListener {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ShapeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PaintButton, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addComponent(TempButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(ShapeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(PaintButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addComponent(TempButton)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ShapeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShapeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ShapeButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void PaintButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PaintButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_PaintButtonActionPerformed
+
+    private void TempButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TempButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TempButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,35 +121,38 @@ public class Switchboard extends javax.swing.JFrame implements ActionListener {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Switchboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SwitchBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Switchboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SwitchBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Switchboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SwitchBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Switchboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SwitchBoard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Switchboard().setVisible(true);
+                new SwitchBoard().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton PaintButton;
+    private javax.swing.JButton ShapeButton;
+    private javax.swing.JButton TempButton;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
-        if (source == jButton1){ new CircleGUI().setVisible(true); }
-        if (source == jButton2){ new RectangleGUI().setVisible(true); }
-//        if (source == jButton1){ new CircleGUI().setVisible(true); }
+        if (source == ShapeButton){ new ShapeSwitchboard().setVisible(true); }
+        if (source == PaintButton){ new PaintGUI().setVisible(true); }
+        if (source == TempButton){ new TempGUI().setVisible(true); }
     }
 }

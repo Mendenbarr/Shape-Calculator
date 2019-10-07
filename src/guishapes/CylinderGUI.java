@@ -13,12 +13,12 @@ import shapecalculator.*;
  *
  * @author 01048750
  */
-public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
+public class CylinderGUI extends javax.swing.JFrame implements ActionListener {
 
     /**
      * Creates new form CircleGUI
      */
-    public RectangleGUI() {
+    public CylinderGUI() {
         initComponents();
         InputButton.addActionListener(this);
     }
@@ -33,38 +33,38 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
     private void initComponents() {
 
         InputLabel = new javax.swing.JLabel();
-        InputTextfield = new javax.swing.JTextField();
+        RadiusText = new javax.swing.JTextField();
+        HeightText = new javax.swing.JTextField();
         InputButton = new javax.swing.JButton();
-        PerimeterLabel = new javax.swing.JLabel();
-        AreaLabel = new javax.swing.JLabel();
+        SurfaceAreaLabel = new javax.swing.JLabel();
+        VolumeLabel = new javax.swing.JLabel();
         Input2Label = new javax.swing.JLabel();
-        Input2Textfield = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Rectangle Calculator");
+        setTitle("Cylinder Calculator");
 
-        InputLabel.setText("Length: ");
+        InputLabel.setText("Radius: ");
 
-        InputTextfield.addActionListener(new java.awt.event.ActionListener() {
+        RadiusText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InputTextfieldActionPerformed(evt);
+                RadiusTextActionPerformed(evt);
+            }
+        });
+
+        HeightText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HeightTextActionPerformed(evt);
             }
         });
 
         InputButton.setText("Enter");
 
-        PerimeterLabel.setText("0: Perimeter");
-        PerimeterLabel.setToolTipText("");
+        SurfaceAreaLabel.setText("0: Surface Area");
+        SurfaceAreaLabel.setToolTipText("");
 
-        AreaLabel.setText("0: Area");
+        VolumeLabel.setText("0: Volume");
 
-        Input2Label.setText("Width:");
-
-        Input2Textfield.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Input2TextfieldActionPerformed(evt);
-            }
-        });
+        Input2Label.setText("Height: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,8 +75,8 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(AreaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PerimeterLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(VolumeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SurfaceAreaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -85,10 +85,10 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(InputTextfield, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
+                                .addComponent(RadiusText, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                                 .addGap(79, 79, 79))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(Input2Textfield)
+                                .addComponent(HeightText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(InputButton)
                                 .addContainerGap())))))
@@ -99,30 +99,30 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InputLabel)
-                    .addComponent(InputTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RadiusText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Input2Label)
-                    .addComponent(Input2Textfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(HeightText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InputButton))
                 .addGap(18, 18, 18)
-                .addComponent(PerimeterLabel)
+                .addComponent(SurfaceAreaLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AreaLabel)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(VolumeLabel)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        setSize(new java.awt.Dimension(287, 189));
+        setSize(new java.awt.Dimension(287, 179));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void InputTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InputTextfieldActionPerformed
+    private void RadiusTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadiusTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_InputTextfieldActionPerformed
+    }//GEN-LAST:event_RadiusTextActionPerformed
 
-    private void Input2TextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Input2TextfieldActionPerformed
+    private void HeightTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HeightTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Input2TextfieldActionPerformed
+    }//GEN-LAST:event_HeightTextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,41 +141,43 @@ public class RectangleGUI extends javax.swing.JFrame implements ActionListener {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RectangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CylinderGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RectangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CylinderGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RectangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CylinderGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RectangleGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CylinderGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RectangleGUI().setVisible(true);
+                new CylinderGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AreaLabel;
+    private javax.swing.JTextField HeightText;
     private javax.swing.JLabel Input2Label;
-    private javax.swing.JTextField Input2Textfield;
     private javax.swing.JButton InputButton;
     private javax.swing.JLabel InputLabel;
-    private javax.swing.JTextField InputTextfield;
-    private javax.swing.JLabel PerimeterLabel;
+    private javax.swing.JTextField RadiusText;
+    private javax.swing.JLabel SurfaceAreaLabel;
+    private javax.swing.JLabel VolumeLabel;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-       double length = Double.parseDouble(InputTextfield.getText());
-       double width = Double.parseDouble(Input2Textfield.getText());
-       Rectangle rectangle = new Rectangle(length,width);
-       PerimeterLabel.setText(String.valueOf(rectangle.getPerimeter()) + ": Perimeter");
-       AreaLabel.setText(String.valueOf(rectangle.getArea()) + ": Area");
+       double radius = Double.parseDouble(RadiusText.getText());
+       double height = Double.parseDouble(HeightText.getText());
+       Cylinder cylinder = new Cylinder(radius,height);
+       SurfaceAreaLabel.setText(String.valueOf(cylinder.getSurfaceArea()) + ": Surface Area");
+       VolumeLabel.setText(String.valueOf(cylinder.getVolume()) + ": Volume");
     }
 }
